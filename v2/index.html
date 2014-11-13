@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+    <meta name="viewport" content ="width=device-width,initial-scale=1">
+<head>
+	<meta charset="UTF-8">
+	<title>Untitled Document</title>
+	<link href="styles.css" rel="stylesheet" />
+    <script src="http://www.parsecdn.com/js/parse-1.3.1.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="scripts.js"></script>
+    <script src="http://code.jboxcdn.com/0.3.2/jBox.min.js"></script>
+    <link href="http://code.jboxcdn.com/0.3.2/jBox.css" rel="stylesheet">
+
+</head>
+<body>
+<!------------------ Start of first page: #home ------------------>
+<div data-role="page" id="home">
+
+	<div data-role="header" data-position="fixed">
+		<h1>POPS v2.0b</h1>
+        <a href="#popup" id="loginBttn" class="login ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear" data-role="button" data-rel="dialog" data-transition="pop">Login</a>
+	</div><!-- /header -->
+
+	<div data-role="content" >
+        <div id="homeRegister">
+            <h4>Welcome to POPS v1.0b</h4>
+            <p>This is not a production app.<br/> Copyright Alpha Nerds Media Ltd,2014.</p>
+        </div>
+        <div id="signupForm" class="container">
+            <h1 id="signupHeader">Create An Account</h1>
+            <div class="inputBox">
+                <input id="myName" type="text" placeholder="Username"/>
+                <input id="myPass" type="password" placeholder="Password"/>
+                <input id="myEmail" type="text" placeholder="Email Address"/>
+                <input id="myPhone" type="text" placeholder="Phone Number"/>
+                <input type="file" id="profilePhotoFileUpload"/>
+            </div>
+            <div class="bttnBox">    
+                <div class="button addUser">
+                    Add User
+                </div>
+                <div class="button fbLogin" class="" title="My tooltip">
+                    Facebook Login
+                </div>
+            </div>
+        </div>
+    </div><!-- /content -->
+	
+	<div data-role="footer" data-theme="a" data-position="fixed">
+        <div data-role="navbar" class="adminAccess">
+            <ul>
+                <li><a href="#adminPage" class="ui-btn-active" data-transition="flip">Access Admin Area</a></li>
+            </ul>
+        </div><!-- /navbar -->
+		<h4>Developed by Alpha Nerds Media Ltd.</h4>
+	</div><!-- /footer -->
+</div><!-- /page one -->
+
+
+<!------------------ Start of first page: USER PAGE ------------------>
+<div data-role="page" id="user">
+
+	<div data-role="header" data-position="fixed">
+		<h1>POPS v2.0b</h1>
+        <a href="#popup" id="loginBttn" class="logout ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear" data-role="button" data-rel="dialog" data-transition="pop">Logout</a>
+	</div><!-- /header -->
+
+	<div data-role="content" >
+        <div id="currentUserData">
+            <div class="profileData" id="profileImageLG"></div>
+            <div class="profileData" id="profileName">Example Name</div>
+            <div class="profileData" id="profileTotalOwed">Sample</div>
+            <div class="profileData" id="profileAccountStatus">Sample</div>
+            <div class="profileData" id="profileEmail">Sample</div>
+        </div>
+        
+    </div><!-- /content -->
+	
+	<div data-role="footer" data-theme="a" data-position="fixed">
+        <div data-role="navbar" class="adminAccess">
+            <ul>
+                <li><a href="#adminPage" class="ui-btn-active" data-transition="flip">Access Admin Area</a></li>
+            </ul>
+        </div><!-- /navbar -->
+		<h4>Developed by Alpha Nerds Media Ltd.</h4>
+	</div><!-- /footer -->
+</div><!-- /page one -->
+
+
+
+<!---------------- Start of second page: ADMIN PAGE ------------->
+<div data-role="page" id="adminPage" data-theme="a">
+
+	<div data-role="header" data-position="fixed">
+		<h1>Admin User Homepage</h1>
+        <a href="#user" id="userView" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-home" data-transition="flip">User View</a>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="a">	
+		<div id="adminLists" data-role="collapsibleset" data-theme="a" data-content-theme="a" data-inset="false">
+            <div data-role="collapsible">
+            <h2>Open Tab Totals</h2>
+                <ul id="tabListView" data-role="listview" data-filter="true" data-filter-theme="a" data-count-theme="b">
+                    
+                </ul>
+            </div>
+            <div data-role="collapsible">
+            <h2>Open User Tabs</h2>
+                <ul id="userTabList" data-role="listview" data-split-icon="gear" data-split-theme="a" data-filter="true" data-filter-theme="a" data-divider-theme="b" data-count-theme="b">
+                </ul>
+            </div>
+            <div data-role="collapsible">
+            <h2>Recent News</h2>
+                <ul data-role="listview" data-theme="a" data-divider-theme="b">
+                    <li data-role="list-divider">Friday, October 8, 2010 <span class="ui-li-count">2</span></li>
+                    <li><a href="#">
+                        <h3>Stephen Weber</h3>
+                    <p><strong>Beer added to users Tab</strong></p>
+                    <p>Basic user notes and details here</p>
+                        <p class="ui-li-aside"><strong>6:24</strong>PM</p>
+                    </a></li>
+                    <li><a href="#">
+                        <h3>John  Doe</h3>
+                    <p><strong>Beer purchased. Paid.</strong></p>
+                    <p>Basic user notes and details here</p>
+                        <p class="ui-li-aside"><strong>9:18</strong>AM</p>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <a id="alphanerds" class="addDrinkBttn" href="#">Add drink Jeff</a>
+            <br/>
+            <a id="raymond" class="addDrinkBttn" href="#">Add drink Ray</a>
+            
+        </div>
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed">
+        <div data-role="navbar" class="ui-state-persist">
+            <ul>
+                <li><a href="#addUserPopup" data-icon="plus" data-transition="flip">Add User</a></li>
+                <li><a href="#adminPage" data-icon="home" class="ui-btn-active">View Stats</a></li>
+                <li><a href="#" data-icon="bullets">Create List</a></li>
+            </ul>
+        </div><!-- /navbar -->
+		<h4>Developed by Alpha Nerds Media Ltd.</h4>
+	</div><!-- /footer -->
+</div><!-- /page two -->
+
+
+<!------------------ Start of #POPUP ------------------>
+<div data-role="page" id="popup">
+	<div data-role="header" data-theme="a">
+        <h1>Login/Out</h1>
+	</div><!-- /header -->
+	<div data-role="content" data-theme="a">	
+		<div class="container">
+            <h1>User Login</h1>
+            <div class="inputBox">
+                <input id="loginUsername" type="text" placeholder="Username"/>
+                <input id="loginPassword" type="password" placeholder="Password"/>
+            </div>
+            <div class="bttnBox">    
+                <div class="button login">
+                    Login
+                </div>
+                <div>
+                   <section id="loginMessage">
+                      <h5></h5>
+                   </section>
+                </div>
+            </div>
+        </div>   
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page popup -->
+
+<!------------------ Start of ADD USER screen ------------------>
+<div data-role="page" id="addUserPopup">
+	<div data-role="header" data-theme="a" data-add-back-btn="true">
+        <h1>Create New User</h1>
+	</div><!-- /header -->
+	<div data-role="content" data-theme="a">	
+		<div class="container">
+            <h1>Create User Account</h1>
+            <div class="inputBox">
+                <input id="username" type="text" placeholder="Username"/>
+                <input id="password" type="password" placeholder="Password"/>
+                <input id="email" type="text" placeholder="Email Address"/>
+                <input id="phone" type="text" placeholder="Phone Number"/>
+                <select class="tabListSelect">
+                </select>
+            </div>
+            <div class="bttnBox">    
+                <div class="button">
+                    Create
+                </div>
+                <div class="button fbLogin">
+                    Facebook Login
+                </div>
+            <div>
+                <section id="loginMessage">
+                   <h5></h5>
+                </section>
+            </div>
+            </div>
+        </div>   
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page popup -->	
+	
+	
+</body>
+</html>

@@ -1,0 +1,145 @@
+.container{
+    color:#3d3d3d;
+    text-shadow:1px 1px 1px #fff;
+    margin:10px;
+    padding:15px;
+    background:#e1e7ee;
+    border-radius:15px;
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.button{
+    display:inline-block;
+    padding:9px;
+    width:auto;
+    height:auto; 
+    background:#4679bd;
+    border-radius:5px;
+    color:#fff;
+    text-shadow:1px 1px 1px #3d3d3d;
+    cursor:pointer;
+}
+.inactive{
+    background:#ccb7b7;
+    cursor:default;
+}
+.login{
+    background:#4679bd;
+    cursor:cursor;
+}
+.logout{
+    background:#ccb7b7;
+    cursor:cursor;
+}
+.bttnBox{
+    display:inline-block;
+    width:100%;
+    margin:5px 0 0 0;
+}
+.inputBox{
+
+}
+#welcomeMessage{
+    color:#fff;
+    text-shadow:1px 1px #3d3d3d;
+    font-size:26px;
+    text-align:center;
+    width:auto;
+    height:auto;
+    background:#4679bd;
+    border-radius:15px;
+    margin:10px;
+}
+#creditMessage{
+    margin:20px 0 20px 0;
+    font-size:12px;
+    text-align:center;
+}
+.playerList{
+    margin:10px 0 0 0;   
+}
+.ui-overlay-a, .ui-page-theme-a{
+    background-color: #fff!important;
+}
+.topLogo img{
+    float:left;
+    width:75px;
+}
+.ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit {
+    background-color: #3852a4;
+    border-color: #ddd;
+    color: #fff;
+    text-shadow: 0 1px 0 #999;
+    font-weight: 700;
+}
+.ui-header-fixed {
+    top: -1px;
+    padding-top: 5px;
+}
+#signupHeader{
+    text-align:center;    
+}
+#homeRegister{
+    margin-top:-10px;
+    text-align:center;
+}
+.smallID{
+     font-size:12px;   
+}
+#drinkCounter{
+    width:270px;
+    margin-left:auto;
+    margin-right:auto;
+}
+#countDisplay{
+    display:inline-block;
+    min-width:80px;
+    min-height:100px;
+    font-size:36px;
+    padding:10px;
+    text-align:center;
+    border-radius:10px;
+}
+.counterBttn{
+    display:inline-block;
+    min-width:33%;
+    min-height:100px;
+    font-size:54px;
+    padding:10px;
+    text-align:center;
+    border-radius:10px;
+}
+.decreaseCount{
+    background:#ff5e5e;   
+}
+.increaseCount{
+    background:#99ddb8;   
+}
+#profileImageLG{
+    float:left;
+    width:120px;
+    height:120px;
+    background:#000;
+    margin: 0 20px 20px 0;
+}
+#profileImageLG img{
+    max-width:120px;   
+}
+}
+#profileName{
+    font-size:32px;   
+}
+#profileTotalOwed{
+    color:#bf0732;
+    font-size:48px;   
+}
+#profileName{
+    font-size:32px;   
+}
+#profileName{
+    font-size:32px;   
+}
+#adminLists{
+    margin-top:-20px;    
+}

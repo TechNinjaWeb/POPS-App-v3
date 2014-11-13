@@ -1,0 +1,137 @@
+.button.inline{
+    display: inline-block;
+}
+.mainContainer{
+    padding:15px;
+}
+.logoImg{
+    position: absolute;
+    margin:10px;
+    width:75px;
+}
+.container{
+    color:#3d3d3d;
+    text-shadow:1px 1px 1px #fff;
+    margin:10px;
+    padding:15px;
+    background:#e1e7ee;
+    border-radius:15px;
+}
+.button{
+    display:inline-block;
+    padding:9px;
+    width:auto;
+    height:auto; 
+    background:#4679bd;
+    border-radius:5px;
+    color:#fff;
+    text-shadow:1px 1px 1px #3d3d3d;
+    cursor:pointer;
+    min-width:25px;
+    text-align: center;
+}
+.button:hover{
+    display:inline-block;
+    padding:9px;
+    width:auto;
+    height:auto; 
+    background:#4679bd;
+    border-radius:5px;
+    color:#fff;
+    text-shadow:1px 1px 1px #3d3d3d;
+    cursor:pointer;
+    min-width:25px;
+    text-align: center;
+}
+.button.addDrinkBttn{
+    margin-left:15px;   
+}
+.userInfo #userID{
+    font-size:11px;   
+}
+.userInfo #userStatus{
+    font-size:11px;   
+}
+.userInfo #userEmail{
+    font-size:11px;   
+}
+.userInfo #userExtra{
+    font-size:12px;   
+}
+.profilePic{
+    float:right;
+    max-width:75px;
+}
+.userBalance{
+    display: inline-block;
+    font-family: 'Sansita One', cursive;
+    text-align: center;
+    font-size: 28px;
+}
+#userProfileBalance{
+    float:right;   
+}
+
+#loginBttn{
+    margin-left:10px!important;
+}
+.ui-listview>li h4{
+    font-size: 12px!important;   
+}
+#adminLists{
+    margin-top:-15px!important;
+}
+
+
+.inactive{
+    background:#ccb7b7;
+    cursor:default;
+}
+.login{
+    background:#4679bd;
+    cursor:cursor;
+}
+.logout{
+    background:#ccb7b7;
+    cursor:cursor;
+}
+.bttnBox{
+    display:inline-block;
+    width:100%;
+    margin:5px 0 0 0;
+}   
+#welcomeMessage{
+    color:#fff;
+    text-shadow:1px 1px #3d3d3d;
+    font-size:26px;
+    text-align:center;
+    width:auto;
+    height:auto;
+    background:#4679bd;
+    border-radius:15px;
+    margin:10px;
+}
+#creditMessage{
+    margin:20px 0 20px 0;
+    font-size:12px;
+    text-align:center;
+}
+.playerList{
+    margin:10px 0 0 0;   
+}
+.ui-overlay-a, .ui-page-theme-a{
+    background-color: #fff!important;
+}
+.topLogo img{
+    float:left;
+    width:75px;
+}
+.ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit {
+    background-color: #3853a4!important;
+    border-color: #ddd!important;
+    color: #fff!important;
+    text-shadow: 0 1px 0 #111!important;
+    font-weight: 700!important;
+    height: 70px!important;
+    box-shadow: 1px 1px 2px #000;
+}

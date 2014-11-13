@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+    <meta name="viewport" content ="width=device-width,initial-scale=1">
+<head>
+	<meta charset="UTF-8">
+	<title>Untitled Document</title>
+	<link href="css/styles.css" rel="stylesheet" />
+    <script src="http://www.parsecdn.com/js/parse-1.3.1.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="http://code.jboxcdn.com/0.3.2/jBox.min.js"></script>
+    <link href="http://code.jboxcdn.com/0.3.2/jBox.css" rel="stylesheet"/>
+    <link href='http://fonts.googleapis.com/css?family=Sansita+One' rel='stylesheet' type='text/css'>
+    <link href="css/jquery.fs.shifter.css" rel="stylesheet" />
+    <script src="js/jquery.fs.shifter.js"></script>
+
+
+</head>
+<body>
+<div id="fb-root"></div>    
+    
+    
+    
+    
+<!------------------ Start of first page: #home ------------------>
+<div data-role="page" id="home">
+
+	<div data-role="header" data-position="fixed">
+		<img class="logoImg" src="http://dev.alphanerdsmedia.com/POPSApp/images/pops_logo.png"/>
+        <h1>POPS v2.0b</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" >
+        <p>The POPSv1.0 Beta app requires you to login with Facebook to view your profile info.</p>
+        <div class="container">
+            <div id="rgeisterForm">
+                <input id="myEmail" type="text" placeholder="email address"/>
+                <input id="myPass" type="password" placeholder="password"/>
+                <div style="margin:0 0 5px 0;" id="signUpBttn" class="button">Create Account</div><div style="margin:0 0 5px 0;" id="loginBttn" class="button">Login</div>
+                <div class="button inline fbLoginButton" id="fbLoginButton">Login with Facebook</div>
+            </div>
+        </div>
+    </div><!-- /content -->
+	
+	<div data-role="footer" data-theme="a" data-position="fixed" data-tap-toggle="false">
+        <div class="noticeBar"></div>
+		<h4>Developed by Alpha Nerds Media Ltd.</h4>
+	</div><!-- /footer -->
+</div><!-- /page one -->  
+    
+    
+    
+
+<!------------------ Start of first page: USER PAGE ------------------>
+<div data-role="page" id="userPage">
+
+	<div data-role="header" data-position="fixed">
+		<img class="logoImg" src="http://dev.alphanerdsmedia.com/POPSApp/images/pops_logo.png"/>
+        <h1>POPS v2.0b</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" >
+        <div class="container">
+            <div class="userInfo">
+                <section id="userProfileImage"></section>
+                <section id="userName"></section>
+                <section id="userID"></section>
+                <section id="userStatus"></section>
+                <section id="userName"></section>
+                <section id="userTeam"></section>
+                <section id="userEmail"></section>
+                <section id="userExtra"></section>
+            </div>
+        </div>
+        <div id="balanceDisplay" class="container">
+            <div class="userBalance">You Owe: </div><div class="userBalance" id="userProfileBalance">$0.00</div>
+        </div>
+        <div class="container">
+            <section id="userPayTab">
+                <div class="button payPalPayment">Pay your Bill</div>
+                <div id="userID" class="button addDrinkBttn">Tab a POP</div>
+            </section>
+        </div>
+        <div class="container">
+            <div class="button inline fbLogoutButton" id="fbLogoutButton">Logout</div>
+        </div>
+    </div><!-- /content -->
+	
+	<div data-role="footer" data-theme="a" data-position="fixed" data-tap-toggle="false">
+        <div data-role="navbar" class="adminAccess">
+            <ul>
+                <li><a href="#adminPage" class="ui-btn-active" data-transition="flip">Access Admin Area</a></li>
+            </ul>
+        </div><!-- /navbar -->
+		<h4>Developed by Alpha Nerds Media Ltd.</h4>
+	</div><!-- /footer -->
+</div><!-- /page one -->
+
+
+
+<!---------------- Start of second page: ADMIN PAGE ------------->
+<div data-role="page" id="adminPage" data-theme="a">
+
+	<div data-role="header" data-position="fixed">
+        <img class="logoImg" src="http://dev.alphanerdsmedia.com/POPSApp/images/pops_logo.png"/>
+		<h1>Admin Page</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="a">	
+		<div id="adminLists" data-role="collapsibleset" data-theme="a" data-content-theme="a" data-inset="false">
+            <div data-role="collapsible">
+            <h2>Team Totals</h2>
+                <ul id="tabListView" data-role="listview" data-filter="true" data-filter-theme="a" data-count-theme="b">
+                    
+                </ul>
+            </div>
+            <div data-role="collapsible">
+            <h2>User Totals</h2>
+                <ul id="userTabList" data-role="listview" data-split-icon="plus" data-split-theme="a" data-filter="true" data-filter-theme="a" data-divider-theme="b" data-count-theme="b">
+                </ul>
+            </div>
+            <div data-role="collapsible">
+            <h2>Recent Transactions</h2>
+                <ul data-role="listview" data-theme="a" data-divider-theme="b">
+                    <li data-role="list-divider">Friday, October 8, 2010 <span class="ui-li-count">2</span></li>
+                    <li><a href="#">
+                        <h3>Sample News Item</h3>
+                    <p><strong>Beer added to users Tab</strong></p>
+                    <p>Basic user notes and details here</p>
+                        <p class="ui-li-aside"><strong>6:24</strong>PM</p>
+                    </a></li>
+                    <li><a href="#">
+                        <h3>Sample News Item</h3>
+                    <p><strong>Beer purchased. Paid.</strong></p>
+                    <p>Basic user notes and details here</p>
+                        <p class="ui-li-aside"><strong>9:18</strong>AM</p>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div class="button inline fbLogoutButton" id="fbLogoutButton">Logout</div>
+            <div class="button inline" id="userView">User View</div>
+        </div> 
+	</div><!-- /content -->
+	
+	<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+		<h4>Developed by Alpha Nerds Media Ltd.</h4>
+	</div><!-- /footer -->
+</div><!-- /page two -->
+
+        
+<!-- FB LIKE BUTTON --------   
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>    
+----------> 
+</body>
+</html>

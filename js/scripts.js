@@ -146,6 +146,23 @@ function addNewUser() {
     });
 }
 
+/////////////// Create New Tab Record For USER in UserTotals //////////////
+function createNewTab(user){
+    console.log("Order Total Data Created");
+    var NewTab = Parse.Object.extend("UserTotals");
+    var myTab = new NewTab();
+    var userId = user.id;
+    var userName = user.get("userName");
+    var userTotal = 0;
+    myTab.set("userId",userId);
+    myTab.set("userName",userName);
+    myTab.set("userTotal",userTotal);
+    console.log("Data has been created: "+userTotal);
+    console.log("Data has been created, waiting to save");
+    myTab.save();
+    console.log("Data has been saved to Parse");
+}
+
 /*////////// USER LOGIN ////////////////*/
 function userLogin() {
     var myLoginEmail = $('#myEmail').val();
@@ -175,6 +192,7 @@ function populateNewUserData(user) {
         FB.api('/me', function(response) {
             var object = response;
             console.log('Your name is ' + object.name);
+            user.set("username",object.name)
             user.set("fullName", object.name);
             user.set("firstName", object.first_name);
             user.set("lastName", object.last_name);
@@ -187,7 +205,7 @@ function populateNewUserData(user) {
             user.set("myTeam", "Not Selected");
             user.set("notes", "No notes to display as of yet...");
             user.set("accountStatus", "active");
-            if (object.name == "Jeffrey Coleman") {
+            if (object.name == "Jeff Coleman") {
                 user.set("adminAccess", true);
             }
             user.save();
@@ -266,14 +284,15 @@ function facebookLogin() {
                 if (!user.existed()) {
                     console.log("<------------------------------------>");
                     console.log("User signed up and logged in through Facebook!");
-                    demoNoticeBottomRight("Account created and now logging you in...", "Success")
+                    demoNoticeBottomRight("Account created and now logging you in...", "Success");
                     populateNewUserData(user);
+                    createNewTab(user);
                     adminCheck();
                 }
                 else {
                     console.log("<------------------------------------>");
                     console.log("User logged in through Facebook!");
-                    demoNoticeBottomRight("Logging you in...", "Success")
+                    demoNoticeBottomRight("Logging you in...", "Success");
                     updateUserData(user);
                     adminCheck();
                 }
@@ -361,7 +380,7 @@ function buildOrderSelect(target) {
 
 
 /*////////// User Totals List - ADMIN ////////////////*/
-function getUserTabs(user) {
+function getUserTabs() {
     console.log("Call for user tab list...");
     var queryUser = new Parse.Query("UserTotals");
     queryUser.exists("userId");
@@ -412,8 +431,8 @@ $(document).on("click", "#fbLoginButton", function() {
 $(document).on("click", "#userView", function() {
     console.log("Button '" + $(this).attr('id') + "' clicked");
     $.mobile.changePage("#userPage", {
-        transition: "slideup",
-        changeHash: false
+        transition: "flip",
+        changeHash: true
     });
 });
 
@@ -446,7 +465,7 @@ function adminCheck() {
         console.log("ADMIN ACCESS GRANTED");
         $.mobile.changePage("#adminPage", {
             transition: "slideup",
-            changeHash: false
+            changeHash: true
         });
         $(".adminAccess").show();
         demoNoticeBottomRight("Admin Access Granted", "Success")
@@ -455,7 +474,7 @@ function adminCheck() {
         console.log("RESTRICTED ACCESS GRANTED");
         $.mobile.changePage("#userPage", {
             transition: "slideup",
-            changeHash: false
+            changeHash: true
         });
         $(".adminAccess").hide();
     }
@@ -484,3 +503,7 @@ function demoNoticeBottomRight(message, title) {
         }
     });
 }
+
+$( window ).hashchange(function() {
+    getUserTabs();
+});

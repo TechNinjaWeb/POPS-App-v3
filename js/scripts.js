@@ -205,11 +205,10 @@ function populateNewUserData(user) {
     /// -------- NEW USER PROFILE Create ---------///
 
 
-
-/// -------- UPDATE USER DATE ---------///
+var UserTotal = Parse.Object.extend("UserTotals");
+var totalQuery = new Parse.Query(UserTotal);
+/// -------- UPDATE USER PROFILE ---------///
 function updateUserData(user) {
-        var UserTotal = Parse.Object.extend("UserTotals");
-        var totalQuery = new Parse.Query(UserTotal);
         var userId = user.id;
         totalQuery.equalTo("userId", userId);
         totalQuery.find({
@@ -290,7 +289,7 @@ function facebookLogin() {
 
 
 
-////////// Build Team Select Box /////////////////
+////////// Build Team Totals Select - ADMIN /////////////////
 function buildTeamSelect(target) {
     console.log("Build Team Select List Started");
     var TabList = Parse.Object.extend("TabLists");
@@ -315,7 +314,7 @@ function buildTeamSelect(target) {
 
 
 
-////////// Build User Select Box /////////////////
+////////// Build User Totals Select - ADMIN /////////////////
 function buildUserSelect(target) {
     console.log("Build User Select List Started");
     $(target).html("<option value='0'>Select User</option>");
@@ -361,28 +360,39 @@ function buildOrderSelect(target) {
 }
 
 
-
-
-/*////////// Player(s) WITH Balance to List ////////////////*/
+/*////////// User Totals List - ADMIN ////////////////*/
 function getUserTabs(user) {
     console.log("Call for user tab list...");
-    var query = new Parse.Query(Parse.User);
-    query.exists("username");
-    query.find({
+    var queryUser = new Parse.Query("UserTotals");
+    queryUser.exists("userId");
+    queryUser.find({
         success: function(results) {
             // Do stuff
             console.log("Success: " + results.length + " tabs oweing found.");
             $("#userTabList").html('');
-            for (i = 0; i < results.length; i++) {
-                var name = results[i].get('fullName');
-                var team = results[i].get('myTeam');
-                var userId = results[i].id;
-                var balance = results[i].get('balance');
-                var amountOwing = (balance).toFixed(2);
-                var profilePhoto = results[i].get("profileImage");
-                $("#userTabList").append("<li><a href='#'><img src='" + profilePhoto + "' class='ui-li-thumb'/><h4>" + name + "</h4><p>" + team + "</p><span class='ui-li-count'>$" + amountOwing + "</span></a><a class='addDrinkBttn' id='" + userId + "' href='#' data-position-to='window' data-transition='pop'></a></li>");
+            for (i=0;i<results.length;i++){
+                var object = results[i];
+                var userId = object.id;
+                var userName = object.get("userName");
+                var userTotal = object.get("userTotal");
+                var profilePhoto = "http://png-4.findicons.com/files/icons/989/ivista_2/128/user.png";
+                var team = "Sample Team "+i;
+                $("#userTabList").append("<li><a href='#'><img src='" + profilePhoto + "' class='ui-li-thumb'/><h4>" + userName + "</h4><p>" + team + "</p><span class='ui-li-count'>$" + userTotal + "</span></a><a class='addDrinkBttn' id='" + userId + "' href='#' data-position-to='window' data-transition='pop'></a></li>");  
             }
             $("#userTabList").listview("refresh");
+            // $("#userTabList").html('');
+            // for (i = 0; i < results.length; i++) {
+            //     var object = results[i];
+            //     var userId = object.id;
+            //     var name = object.get('fullName');
+            //     var team = object.get('myTeam');
+            //     var userId = object.id;
+            //     var balance = object.get('balance');
+            //     var amountOwing = (balance).toFixed(2);
+            //     var profilePhoto = object.get("profileImage");
+            //     $("#userTabList").append("<li><a href='#'><img src='" + profilePhoto + "' class='ui-li-thumb'/><h4>" + name + "</h4><p>" + team + "</p><span class='ui-li-count'>$" + amountOwing + "</span></a><a class='addDrinkBttn' id='" + userId + "' href='#' data-position-to='window' data-transition='pop'></a></li>");
+            //}
+            //$("#userTabList").listview("refresh");
         }
     });
 }

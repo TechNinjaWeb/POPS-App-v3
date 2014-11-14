@@ -24,7 +24,7 @@ $(document).ready(function() {
         if (user) {
             console.log("<------------------------------------>");
             console.log("User Logged In");
-            updateUserData(user)
+            updateUserData(user);
             adminCheck();
         }
         else {
@@ -63,13 +63,13 @@ $(document).ready(function() {
 
 
 
-//////////////////    CLOUD CODE     //////////////////
+
 /*/////////////////// Add Drink ////////////////*/
 function addDrink(user, qty, price) {
     var userId = user.id;
-    var userName = user.get("fullName");
+    var userName = user.get("userName");
     console.log(userId);
-    console.log(userName);
+    console.log(userName); 
     console.log(price + " X " + qty);
     var NewOrder = Parse.Object.extend("OrderList");
     var myOrder = new NewOrder();
@@ -107,8 +107,8 @@ function calcTotal(user, orderTotal) {
     ////////// ADD DRINK BUTTON /////////////////
 $(document).on("click", ".addDrinkBttn", function() {
     var user = Parse.User.current();
-    var userId = user.id;
-    var userName = user.get("fullName");
+    var userId = user.id; // Unused Variable Warning
+    var userName = user.get("username");
     var message = "Transaction has been processed.";
     var title = userName + " tabbed a POP";
     addDrink(user, 1, 2.50);
@@ -124,7 +124,7 @@ function addNewUser() {
     user.set("username", myEmail);
     user.set("password", myPass);
     user.set("fullName", myEmail);
-    user.set("email", myEmail)
+    user.set("email", myEmail);
     user.set("balance", 0);
     user.set("myTeam", "Add Your Team Here");
     user.set("notes", "No notes to display as of yet...");
@@ -136,6 +136,7 @@ function addNewUser() {
         success: function(user) {
             console.log("Successfully Saved User");
             populateNewUserData(user);
+            createNewTab(user);
             adminCheck();
         },
         error: function(user, error) {
@@ -152,7 +153,7 @@ function createNewTab(user){
     var NewTab = Parse.Object.extend("UserTotals");
     var myTab = new NewTab();
     var userId = user.id;
-    var userName = user.get("userName");
+    var userName = user.get("username");
     var userTotal = 0;
     myTab.set("userId",userId);
     myTab.set("userName",userName);
@@ -173,8 +174,8 @@ function userLogin() {
             console.log("Successfully logged in: " + user.get('username'));
             $("#myEmail").val('');
             $("#myPass").val('');
-            adminCheck();
             updateUserData(user);
+            adminCheck();
         },
         error: function(user, error) {
             // The login failed. Check error to see why.
@@ -192,11 +193,11 @@ function populateNewUserData(user) {
         FB.api('/me', function(response) {
             var object = response;
             console.log('Your name is ' + object.name);
-            user.set("username",object.name)
+            user.set("username",object.name);
             user.set("fullName", object.name);
             user.set("firstName", object.first_name);
             user.set("lastName", object.last_name);
-            user.set("email", object.email)
+            user.set("email", object.email);
             user.set("gender", object.gender);
             user.set("locale", object.locale);
             user.set("ageRange", object.age_range);
@@ -205,7 +206,7 @@ function populateNewUserData(user) {
             user.set("myTeam", "Not Selected");
             user.set("notes", "No notes to display as of yet...");
             user.set("accountStatus", "active");
-            if (object.name == "Jeff Coleman") {
+            if (object.name == "Jeff Coleman" || object.name == "Rahim The-Dream") {
                 user.set("adminAccess", true);
             }
             user.save();
@@ -219,6 +220,7 @@ function populateNewUserData(user) {
             user.save();
         });
         updateUserData(user);
+        adminCheck();
     }
     /// -------- NEW USER PROFILE Create ---------///
 
@@ -235,7 +237,7 @@ function updateUserData(user) {
                 var balance = object.get('userTotal');
                 var myBalance = balance.toFixed(2);
                 $("#userProfileBalance").html("$"+myBalance);
-                console.log("updated user profile with new total")
+                console.log("updated user profile with new total");
             },
             error: function(error) {
                 alert("Error");
@@ -243,7 +245,6 @@ function updateUserData(user) {
         });
         console.log("<------------------------------------>");
         console.log("Populate User Data - Called");
-        var userid = user.id;
         var name = user.get('fullName');
         var team = user.get('myTeam');
         var notes = user.get('notes');
@@ -468,7 +469,6 @@ function adminCheck() {
             changeHash: true
         });
         $(".adminAccess").show();
-        demoNoticeBottomRight("Admin Access Granted", "Success")
     }
     else {
         console.log("RESTRICTED ACCESS GRANTED");
@@ -478,6 +478,8 @@ function adminCheck() {
         });
         $(".adminAccess").hide();
     }
+    updateUserData(user);
+    demoNoticeBottomRight("Admin Access Granted", "Success");
 }
 
 
